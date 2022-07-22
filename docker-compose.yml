@@ -11,12 +11,15 @@ services:
           - "5432:5432"
         volumes:
           - db:/var/lib/postgresql/data
+
     web:
         build: .
         ports:
             - "5000:5000"
         volumes:
             - .:/code
+        depends_on:
+          - db
 
 volumes:
   db:

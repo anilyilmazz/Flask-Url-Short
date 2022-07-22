@@ -8,7 +8,8 @@ api = Api(
     blueprint,
     title='Url short app',
     version='1.0',
-    description='url short app with flask'
+    description='url short app with flask',
+    doc='/doc'
 )
 
 api.add_namespace(url_ns, path="/")
