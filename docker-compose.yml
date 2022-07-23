@@ -12,6 +12,18 @@ services:
         volumes:
           - db:/var/lib/postgresql/data
 
+    testdb:
+      image: postgres:14.1-alpine
+      restart: always
+      environment:
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=postgres
+        - POSTGRES_DB=url
+      ports:
+        - "5433:5433"
+      volumes:
+        - db:/var/lib/postgresql/data_test
+
     web:
         build: .
         ports:

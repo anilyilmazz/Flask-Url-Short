@@ -16,8 +16,13 @@ class LocalConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:postgres@localhost:5432/url'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
+class TestConfig(Config):
+    DEBUG = True
+    SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:postgres@testdb:5432/url'
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 config_by_name = dict(
     app=AppConfig,
-    local=LocalConfig
+    local=LocalConfig,
+    test=TestConfig
 )
